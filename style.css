@@ -162,8 +162,9 @@ body{
 .carta .view-portada img{
   width: 40px;
 }
-.carta .view-backview img{
-  max-width: 45px;
+.carta .view-back img{
+    max-height: 150px;
+    max-width: 100px;  
 }
 .carta .view-back{
   transform: rotateY(-180deg);
