@@ -1,6 +1,6 @@
 let minutos;
 let segundos;
-let tiempoRestante = 60; // 3 minutos en segundos
+//let tiempoRestante = 60; // 3 minutos en segundos
 
 const cards = document.querySelectorAll(".carta");
 let matched = 0;
@@ -8,6 +8,11 @@ let cardOne, cardTwo;
 let disableDeck = false;
 let intervalid = null;
 let start= false;
+let ptos;
+// let puntuación=0;
+// let puntuación_máxima=1;
+// let tiempo_en_mins;
+// let tiempo_en_secs;
 
 
 
@@ -19,9 +24,12 @@ startBtn.addEventListener('click', initGame);
 function initGame() {
 
     start= reset();
-    
+    tiempo_en_mins=0;
+    tiempo_en_secs=0;
+
     minutos= 1;
     segundos= 0;
+    puntaje.innerHTML=0;
     start= true;
 
     
@@ -39,8 +47,39 @@ function reset(){
     clearInterval(intervalid)
     return start= false
 
-
 }
+function score(tiempoRestante, tiempoTotal, puntuacionMaxima) {
+    let puntuacion = puntuacionMaxima * (tiempoRestante / tiempoTotal);
+    ptos=Math.floor(puntuacion);
+    puntaje.innerHTML= ptos;
+
+    }
+
+// function score(tiempoRestante, tiempoTotal, puntuacionMaxima) {
+//     let tiempoTranscurrido;
+//     tiempoTranscurrido= tiempoTotal - tiempoRestante;
+//     let puntuacion = puntuacionMaxima * (tiempoRestante / tiempoTotal);
+//     return Math.floor(puntuacion);
+//     }
+
+// function puntaja(){
+//     let text_sec;
+//     let text_min;
+//     let tiempo_total= 180;
+//     tiempo_en_mins= document.getElementById('minutos').innerHTML;
+//     tiempo_en_secs= document.getElementById('segundos').innerHTML;
+//     let tiempo_convertido;
+//     if(tiempo_en_mins>=3){
+//         tiempo_convertido= tiempo_en_mins *60;
+//     }
+
+    
+//     tiempoRestante= tiempo_convertido + tiempo_en_secs;
+
+//     puntuación = puntuación_máxima * (tiempo_restante / tiempo_total)
+//     //puntuación_máxima=puntuación;
+
+// }
 
 
 
@@ -73,6 +112,9 @@ function matchCards(img1, img2) {
             }, 1000);
             clearInterval(intervalid)
             start=false;
+            let tiempoRestante =parseInt(document.getElementById('minutos').innerHTML) * 60 + parseInt(document.getElementById('segundos').innerHTML);
+            let puntuacionTotal = score(tiempoRestante, 180, 100);
+            console.log(`El tiempo se ha acabado. Tu puntuación es: ${puntuacionTotal}`);
         }
         cardOne.removeEventListener("click", flipCard);
         cardTwo.removeEventListener("click", flipCard);
@@ -154,6 +196,11 @@ function cargarmins(segundos){
         }, 500)
         start= false;
         shuffleCard();
+        let tiempoRestante =parseInt(document.getElementById('minutos').innerHTML) * 60 + parseInt(document.getElementById('segundos').innerHTML);
+        let puntuacionTotal = score(tiempoRestante, 180, 100);
+        console.log(`El tiempo se ha acabado. Tu puntuación es: ${puntuacionTotal}`);
+        //let puntuaciontotal= score(tiempoRestante, 180,100)
+        
         console.log(`El tiempo se ha acabado`)
 
     }
@@ -176,5 +223,3 @@ function cargarmins(segundos){
 
 // console.log(`El tiempo se ha acabado`)
 //       clearInterval(timer)
-
-
