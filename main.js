@@ -17,9 +17,14 @@ const startBtn = document.querySelector('.start-btn');
 startBtn.addEventListener('click', initGame);
 
 function initGame() {
+
+    start= reset();
+    
     minutos= 1;
     segundos= 0;
     start= true;
+
+    
     intervalid=setInterval(cargarsec, 1000);
     // if(minutos ==0){
     //     shuffleCard();
@@ -27,19 +32,15 @@ function initGame() {
     
     
 }
-function resetGame() {
 
-    board.innerHTML = '';
-    clearInterval(timeInterval);
-    totalTime = 0;
-    timer.textContent = totalTime;
-    scoreCounter = 0;
-    scoreItem.textContent = scoreCounter;
-    finishDisplay.classList.add('hide');
-  }
+function reset(){
+    
+    shuffleCard();
+    clearInterval(intervalid)
+    return start= false
 
 
-
+}
 
 
 
@@ -71,6 +72,7 @@ function matchCards(img1, img2) {
                 return shuffleCard();
             }, 1000);
             clearInterval(intervalid)
+            start=false;
         }
         cardOne.removeEventListener("click", flipCard);
         cardTwo.removeEventListener("click", flipCard);
