@@ -1,32 +1,76 @@
-let minutos= 3;
-let segundos= 0;
+let minutos;
+let segundos;
+let tiempoRestante = 60; // 3 minutos en segundos
 
 const cards = document.querySelectorAll(".carta");
 let matched = 0;
 let cardOne, cardTwo;
 let disableDeck = false;
+let intervalid = null;
+let start= false;
+
+
+
+
+const startBtn = document.querySelector('.start-btn');
+
+startBtn.addEventListener('click', initGame);
+
+function initGame() {
+    minutos= 1;
+    segundos= 0;
+    start= true;
+    intervalid=setInterval(cargarsec, 1000);
+    // if(minutos ==0){
+    //     shuffleCard();
+    // }
+    
+    
+}
+function resetGame() {
+
+    board.innerHTML = '';
+    clearInterval(timeInterval);
+    totalTime = 0;
+    timer.textContent = totalTime;
+    scoreCounter = 0;
+    scoreItem.textContent = scoreCounter;
+    finishDisplay.classList.add('hide');
+  }
+
+
+
+
+
+
 
 function flipCard({target: clickedCard}) {
-    if(cardOne !== clickedCard && !disableDeck) {
-        clickedCard.classList.add("flip");
-        if(!cardOne) {
-            return cardOne = clickedCard;
+    if(start === true){
+        if(cardOne !== clickedCard && !disableDeck) {
+            clickedCard.classList.add("flip");
+            if(!cardOne) {
+                return cardOne = clickedCard;
+            }
+            cardTwo = clickedCard;
+            disableDeck = true;
+            let cardOneImg = cardOne.querySelector(".view-back img").src,
+            cardTwoImg = cardTwo.querySelector(".view-back img").src;
+            matchCards(cardOneImg, cardTwoImg);
         }
-        cardTwo = clickedCard;
-        disableDeck = true;
-        let cardOneImg = cardOne.querySelector(".view-back img").src,
-        cardTwoImg = cardTwo.querySelector(".view-back img").src;
-        matchCards(cardOneImg, cardTwoImg);
+
     }
+    
 }
 
 function matchCards(img1, img2) {
+    
     if(img1 === img2) {
         matched++;
         if(matched == 8) {
             setTimeout(() => {
                 return shuffleCard();
             }, 1000);
+            clearInterval(intervalid)
         }
         cardOne.removeEventListener("click", flipCard);
         cardTwo.removeEventListener("click", flipCard);
@@ -68,7 +112,7 @@ cards.forEach(card => {
 
 
 
-cargarsec()
+
 
 
 //cargamos los segundos 
@@ -103,8 +147,12 @@ function cargarmins(segundos){
         }, 500)
     }else if(segundos==-1 & minutos==0){
         setTimeout(()=>{
-            minutos= 59;
+            minutos= 0;
+            clearInterval(intervalid)
         }, 500)
+        start= false;
+        shuffleCard();
+        console.log(`El tiempo se ha acabado`)
 
     }
 
@@ -114,22 +162,17 @@ function cargarmins(segundos){
         TextMin=minutos;
         setInterval(0, 1000)
     }
-    if(minutos >3 || minutos <0){
-        TextMin='00'
-        clearInterval(intervalid)
-       
-        
-       
-    }
     document.getElementById('minutos').innerHTML = TextMin;
     
 
 
 }
+
 //se ejecuta cada segundo
-let intervalid = setInterval(cargarsec, 1000);
 
 
 
+// console.log(`El tiempo se ha acabado`)
+//       clearInterval(timer)
 
 
