@@ -358,8 +358,11 @@ function cargarmins(segundos){
         let puntuacionTotal = score(tiempoRestante, 180, 100);
         
         recolectarData();
+        setTimeout(function() {
+            modal_1.style.display = "block";;
+          }, 1000 );
 
-        modal_1.style.display = "block";
+        // modal_1.style.display = "block";
         
         console.log(`El tiempo se ha acabado. Tu puntuación es: ${puntuacionTotal}`);
         //let puntuaciontotal= score(tiempoRestante, 180,100)
