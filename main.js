@@ -101,16 +101,10 @@ btnCerrar.onclick = function() {
         ocultarModal(); 
         
       } else {
-        // Al menos uno de los valores está vacío, mostrar un mensaje de error o hacer algo aquí
+        
         modal.style.display = "block";
       }
-    // localStorage.setItem("Nomnbre", nombre);
-    // localStorage.setItem("Apellido", apellido);
-    // miDiccionario.nombre = nombre;
-    // miDiccionario.apellido = apellido;
-    // console.log("Nombre:", nombre);
-    // console.log("Apellido:", apellido);
-    // ocultarModal(); 
+    
   }
 
 //funcion que me inicia el juego al pisar el boton
