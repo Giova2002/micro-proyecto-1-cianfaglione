@@ -20,6 +20,9 @@ let miLista = [];
 // const apellidoInput= document.querySelector('#apellido');
 function recolectarData(){
     miLista.push(miDiccionario);
+    miLista.sort(function(a, b) {
+        return b.score - a.score;
+      });
     localStorage.setItem('lista', JSON.stringify(miLista));
     guardarEnLocalStorage();
      
@@ -33,7 +36,7 @@ function guardarEnLocalStorage(){
     miLista.forEach(element => {
       let elements = document.getElementById('elements');
       let div = document.createElement("div");
-      div.innerHTML =  "- " + element.nombre + " " + element.apellido +" Su Score es --> " + element.score;
+      div.innerHTML =  "- " + element.nombre + " " + element.apellido +" ----> " + element.score;
       elements.appendChild(div);
     });  
 
