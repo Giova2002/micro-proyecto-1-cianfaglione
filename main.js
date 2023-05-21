@@ -19,11 +19,16 @@ let miLista = [];
 // const nombreInput= document.querySelector('#nombre');
 // const apellidoInput= document.querySelector('#apellido');
 function recolectarData(){
-    miLista.push(miDiccionario);
-    miLista.sort(function(a, b) {
+    let listaAux=[];
+    if(localStorage.getItem('lista') !=null){
+        listaAux=JSON.parse(localStorage.getItem('lista'));
+    }
+    console.log(listaAux)
+    listaAux.push(miDiccionario);
+    listaAux.sort(function(a, b) {
         return b.score - a.score;
       });
-    localStorage.setItem('lista', JSON.stringify(miLista));
+    localStorage.setItem('lista', JSON.stringify(listaAux));
     guardarEnLocalStorage();
      
 }
@@ -76,30 +81,6 @@ const startBtn = document.querySelector('.start-btn');
 
 startBtn.addEventListener('click', initGame);
 
-// function abrirModal(){
-    
-// //     contModal.classList.add('mostrar');
-
-// // }
-
-// btnOcultarModal.addEventListener('click', (e)=>{
-//     e.preventDefault();
-// //     contModal.classList.remove('mostrar')
-// })
-
-
-// const enviarBtn = document.getElementById("enviar-btn");
-
-// enviarBtn.addEventListener("click", function() {
-//     console.log('hola')
-//     // Obtener los valores de los inputs
-//     const nombre = document.getElementById("nombre").value;
-//     const apellido = document.getElementById("apellido").value;
-//     console.log("Nombre:", nombre);
-//     console.log("Apellido:", apellido);
-//     // Ocultar el modal y empezar el tiempo
-//     ocultarModal();
-// });
 
 const form= document.querySelector('form');
 function ocultarModal() {
@@ -132,7 +113,7 @@ btnCerrar.onclick = function() {
     // ocultarModal(); 
   }
 
-
+//funcion que me inicia el juego al pisar el boton
 function initGame() {
 
     start= reset();
@@ -150,44 +131,7 @@ function initGame() {
       }
     
 }
-
-
-    // if(modal.style.display == "none"){
-    //     start= true;
-    //     intervalid=setInterval(cargarsec, 1000);
-
-    // }
-        // tiempo_en_mins=0;
-        // tiempo_en_secs=0;
-
-        // minutos= 1;
-        // segundos= 0;
-        // puntaje.innerHTML=0;
-        // start= true;
-
-        
-        // intervalid=setInterval(cargarsec, 1000);
-
-    // if(modal.style.display  == "none" ){
-    //     tiempo_en_mins=0;
-    //     tiempo_en_secs=0;
-
-    //     minutos= 1;
-    //     segundos= 0;
-    //     puntaje.innerHTML=0;
-    //     start= true;
-
-        
-    //     intervalid=setInterval(cargarsec, 1000);
-
-    // }
-    // abrirModal();
-
-    
-    // if(minutos ==0){
-    //     shuffleCard();
-    // }
-    
+  
 
 
 function reset(){
@@ -198,6 +142,8 @@ function reset(){
     return start= false
 
 }
+
+//para calcular el puntaje
 function score(tiempoRestante, tiempoTotal, puntuacionMaxima) {
     let puntuacion = puntuacionMaxima * (tiempoRestante / tiempoTotal);
     ptos=Math.floor(puntuacion);
@@ -206,35 +152,7 @@ function score(tiempoRestante, tiempoTotal, puntuacionMaxima) {
 
     }
 
-// function score(tiempoRestante, tiempoTotal, puntuacionMaxima) {
-//     let tiempoTranscurrido;
-//     tiempoTranscurrido= tiempoTotal - tiempoRestante;
-//     let puntuacion = puntuacionMaxima * (tiempoRestante / tiempoTotal);
-//     return Math.floor(puntuacion);
-//     }
-
-// function puntaja(){
-//     let text_sec;
-//     let text_min;
-//     let tiempo_total= 180;
-//     tiempo_en_mins= document.getElementById('minutos').innerHTML;
-//     tiempo_en_secs= document.getElementById('segundos').innerHTML;
-//     let tiempo_convertido;
-//     if(tiempo_en_mins>=3){
-//         tiempo_convertido= tiempo_en_mins *60;
-//     }
-
-    
-//     tiempoRestante= tiempo_convertido + tiempo_en_secs;
-
-//     puntuación = puntuación_máxima * (tiempo_restante / tiempo_total)
-//     //puntuación_máxima=puntuación;
-
-// }
-
-
-
-
+// para voltear las cartas
 function flipCard({target: clickedCard}) {
     if(start === true){
         if(cardOne !== clickedCard && !disableDeck) {
@@ -252,6 +170,8 @@ function flipCard({target: clickedCard}) {
     }
     
 }
+
+//vemos si las cartas seleccionadas son iguales o no 
 
 function matchCards(img1, img2) {
     
@@ -383,39 +303,3 @@ function cargarmins(segundos){
 
 }
 
-//se ejecuta cada segundo
-
-
-
-// console.log(`El tiempo se ha acabado`)
-//       clearInterval(timer)
-
-// function mostrarTabla() {
-//     var datos = JSON.parse(localStorage.getItem("datos")); // obtiene los datos del LocalStorage y los convierte en un objeto JavaScript
-//     var tablaBody = document.getElementById("tabla-body"); // obtiene el cuerpo de la tabla
-  
-//     for (var i = 0; i < datos.length; i++) {
-//       var fila = document.createElement("tr"); // crea una nueva fila de la tabla
-  
-//      // crea las celdas de la fila con los datos correspondientes
-//       var nombreCel = document.createElement("td");
-//       nombreCel.textContent = datos[i].nombre;
-//       var emailCel = document.createElement("td");
-//       emailCel.textContent = datos[i].email;
-//       var telefonoCel = document.createElement("td");
-//       telefonoCel.textContent = datos[i].telefono;
-  
-//       // agrega las celdas a la fila
-//       fila.appendChild(nombreCel);
-//       fila.appendChild(emailCel);
-//       fila.appendChild(telefonoCel);
-  
-//       // agrega la fila al cuerpo de la tabla
-//       tablaBody.appendChild(fila);
-//     }
-//   }
-  
-  // llama a la función para mostrar la tabla al cargar la página
-//   window.onload = function() {
-//     mostrarTabla();
-//   }
