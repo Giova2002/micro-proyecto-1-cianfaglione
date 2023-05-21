@@ -518,8 +518,38 @@ body{
     max-width: 35px;
   }
 
+  .boton-start{
+    position: absolute;
+    top: 90%;
+    right: 35%;
 
 }
+.tablero{
+    position: absolute;
+    top: 40%;
+    padding: 20px;
+    border-radius: 20px;
+    background: #ff9f1c;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    left: 16%;
+}
+
+.text{
+    position: absolute;
+    top: 85%;
+    font-size: 15px;
+    font-weight: 400px;
+    right: 15%;
+}
+.title{
+    font-family: 'Orbitron', sans-serif;
+    font-size: 90px;
+    font-weight: 300;
+    right: 0px;
+}
+}
+
+
 
 
 @media screen and (max-width: 375px) {
@@ -700,6 +730,7 @@ body{
       }
   
   }
+
 
 
 
