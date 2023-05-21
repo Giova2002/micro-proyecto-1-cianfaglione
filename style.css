@@ -165,56 +165,6 @@
 
 
 
-/* ESTO NOO */
-/* .modal-container{
-    position: fixed;
-    top: 0;
-    Left: 0;
-    right: 0;
-    bottom: 0;
-    z-index: -1;
-    opacity: 0;
-    display:flex;
-    width: 100%;
-    height: 100%; 
-    justify-content: center;
-    aLign-items: center;
-}
-
-.modal-container.mostrar {
-    background-color: #000000;
-    z-index: 1;
-    opacity: 0.9;
-
-}
-
-.modal-container .modal{
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    margin: 0 500px;
-    padding: 50px;
-    background-color:#fff;
-    opacity: 1;
-}
-
-form{
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-}
-
-form input{
-    margin: 15px;
-    padding: 10px;
-} */
-
-
-/* apartir de aqui si */
 .boton-start{
     position: absolute;
     top: 145%;
@@ -405,19 +355,159 @@ body{
 
 
 @media screen and (max-width: 700px) {
-  .cards{
+  .card{
     height: 350px;
     width: 350px;
   }
   .carta .view-portada img{
-    width: 17px;
+    width: 30px;
   }
   .carta .view-back img{
-    max-width: 40px;
+    max-width: 50px;
   }
+
+.text{
+    position: absolute;
+    top: 85%;
+    font-size: 15px;
+    font-weight: 400px;
+    right: 20%;
+}
+.title{
+    font-family: 'Orbitron', sans-serif;
+    font-size: 100px;
+    font-weight: 300;
+    right: 0px;
+}
+
+.score{
+    
+    display: flex;
+    justify-content: center;
+    position: absolute;
+    top: 27%;
+    right: 70%;
+}
+
+
+.temporizador{
+    
+    display: flex;
+    justify-content: center;
+    position: absolute;
+    top: 25%;
+    right: 8%;
+    
+}
+.tablero{
+    position: absolute;
+    top: 40%;
+    padding: 40px;
+    border-radius: 20px;
+    background: #ff9f1c;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    left: 20%;
+}
+
+.boton-start{
+    position: absolute;
+    top: 105%;
+    right: 38%;
+
+}
+
+.modal {
+    display: none; /* ocultamos inicialmente la consola modal */
+    position: fixed; /* posición fija para que aparezca en el centro */
+    z-index: 1; /* para que esté en la parte superior de todo */
+    left: 0;
+    top: 0;
+    width: 100%; /* ocupa todo el ancho de la pantalla */
+    height: 100%; /* ocupa todo el alto de la pantalla */
+    overflow: auto; /* para poder desplazarse si el contenido es demasiado grande */
+    background-color: rgba(0, 0, 0, 0.4); /* fondo oscuro semi-transparente */
+    padding: 40px;
+  }
+  
+  .modal-content {
+    background-color: #ffffff; /* fondo blanco */
+    margin: 15% auto; /* margen superior para que aparezca en el centro */
+    padding: 30px;
+    border: 1px solid #888;
+    width: 100%; /* ancho del contenido de la consola modal */
+  }
+
+  .modal-content h2{
+    font-size: 40px;
+    color: #ff9f1c;
+    padding-bottom: 25px;
+    padding-left: 0px;
+  }
+
+  .text_1{
+    padding-bottom: 4px;
+    font-size: 10px;
+  }
+
+ .text_2{
+    padding-bottom: 20px;
+    font-size: 10px;
+  }
+
+
+  .modal-content input{
+    background-color: #ffffff;
+    padding: 10px;
+  }
+  
+
+  .close {
+    color: #aaa;
+    float: right;
+    font-size: 30px;
+    font-weight: bold;
+  }
+  
+  .close:hover,
+  .close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+  }
+
+  .modal-1 {
+    display: none; 
+    position: fixed; 
+    z-index: 1; 
+    left: 0;
+    top: 0;
+    width: 100%; 
+    height: 100%; 
+    overflow: auto; 
+    background-color: rgba(0, 0, 0, 0.4); 
+    padding: 20px;
+  }
+  
+  .modal-content-1 {
+    background-color: #ffffff; /* fondo blanco */
+    margin: 50% auto; /* margen superior para que aparezca en el centro */
+    padding: 10px;
+    border: 1px solid #c3c3c3;
+    width: 80%; /* ancho del contenido de la consola modal */
+  }
+  .modal-content-1 h2{
+    font-size: 40px;
+    color: #ff9f1c;
+    padding-right: 90px;
+    padding-bottom: 10px;
+    
+
+  }
+
+
 }
 @media screen and (max-width: 530px) {
-  .cards{
+  .card{
     height: 300px;
     width: 300px;
   }
@@ -432,156 +522,40 @@ body{
 }
 
 
-
-/* @media screen and (max-width: 375px) {
-    .cards{
-      height: 100px;
-      width: 100px;
+@media screen and (max-width: 375px) {
+    .card{
+      height: 300px;
+      width: 300px;
     }
     .carta .view-portada img{
-      width: 17px;
+      width: 15px;
     }
     .carta .view-back img{
-      max-width: 40px;
+      max-width: 35px;
     }
-  }
-
-  .tablero{
-    position: absolute;
-    top: 10%;
-    padding: 0px;;
-    border-radius: 20px;
-    background: #ff9f1c;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-}
-
-.boton-start{
-    position: absolute;
-    top: 600%;
-} */
-/* 
-.start-btn {
-    background-color: #ff9f1c;
-    color: #ffffff;
-    border-radius: 5px;
-    padding: 1rem 2rem;
-    border: 0;
-    cursor: pointer;
-    font-family: 'DynaPuff', cursive;
-    font-size: 1.5rem;
-    transition: 0.3s all;
-  }
-  
-
-.start-btn:hover {
-    background-color: #008bae;
-  } */
-
-
-@media screen and (max-width: 480px) {
-    /* Estilo pare telefono */
-    
-    
-    .cards{
-      height: 100px;
-      width: 100px;
-    }
-    .carta .view-portada img{
-      width: 40px;
-    }
-    .carta .view-back img{
-      max-width: 140px;
-      max-height: 90px;
-    }
-    .tablero{
-        position: absolute;
-        right: -20%;
-        top: 42%;
-        padding: 5px;
-        border-radius: 20px;
-        background: #ff9f1c;
-        box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-    }
-
-    
-
     .boton-start{
         position: absolute;
-        top: 110%;
-    }
-    .start-btn {
-        background-color: #ff9f1c;
-        color: #ffffff;
-        border-radius: 5px;
-        padding: 1rem 2rem;
-        border: 0;
-        cursor: pointer;
-        font-family: 'DynaPuff', cursive;
-        font-size: 1.5rem;
-        transition: 0.3s all;
-      }
-      
-    
-    .start-btn:hover {
-        background-color: #008bae;
-      }
-    .intro{
-        position: absolute;
-        top: 3%;
-        
-    }
-    .text{
-        position: absolute;
-        top: 85%;
-        font-size: 18px;
-        font-weight: 300px;
-        right: 7%;
-    }
-    .title{
-        /* align-items: center; */
-        position: relative;
-        right: -7%;
-        font-family: 'Orbitron', sans-serif;
-        font-size: 100px;
-        font-weight: 300;
-        
-    }
+        top: 95%;
+        right: 26%;
 
+    }
     .score{
     
         display: flex;
         justify-content: center;
         position: absolute;
-        top: 30%;
-        right: 63%;
+        top: 26%;
+        right: 55%;
     }
     
-    .score .bloque1{
-        margin: 0% 4%;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        font-size: 20px;
-        width: 70px;
-        height: 600px;
-    }
-    
-    .score .bloque1 div{
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        font-size: 20px;
-        background-color: #ffbf69;
-    
-    }
     
     .temporizador{
         
         display: flex;
         justify-content: center;
         position: absolute;
-        top: 28%;
-        right: 0%;
+        top: 25%;
+        right: 5%;
         
     }
     .temporizador .bloque{
@@ -591,26 +565,34 @@ body{
         align-items: center;
         
     }
-    .temporizador .bloque div{
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        background-color:#cbf3f0 ;
-        box-shadow: #cbf3f0;
-        font-size: 25px;
-        width: 70px;
-        height: 40px;
-        margin-bottom: 10px;
-        border-radius: 5px;
-        border: 1px solid #000000 ;
+
+    .tablero{
+        position: absolute;
+        top: 40%;
+        padding: 20px;
+        border-radius: 20px;
+        background: #ff9f1c;
         box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-    }
-    
-    .temporizador .bloque p{
-        font-size: 12px;
-        margin: 0;
+        left: 5%;
     }
 
+    .text{
+        position: absolute;
+        top: 85%;
+        font-size: 10px;
+        font-weight: 400px;
+        right: 15%;
+    }
+    .title{
+        font-family: 'Orbitron', sans-serif;
+        font-size: 60px;
+        font-weight: 300;
+        right: 0px;
+    }
+    .intro{
+        align-items: center;
+       
+    }
 
     .modal {
         display: none; /* ocultamos inicialmente la consola modal */
@@ -623,542 +605,102 @@ body{
         overflow: auto; /* para poder desplazarse si el contenido es demasiado grande */
         background-color: rgba(0, 0, 0, 0.4); /* fondo oscuro semi-transparente */
         padding: 40px;
-    }
-    
-    .modal-content {
+      }
+      
+      .modal-content {
         background-color: #ffffff; /* fondo blanco */
         margin: 15% auto; /* margen superior para que aparezca en el centro */
-        padding: 40px;
+        padding: 30px;
         border: 1px solid #888;
-        width: 80%; /* ancho del contenido de la consola modal */
-    }
-
-    .modal-content h2{
-        font-size: 50px;
+        width: 100%; /* ancho del contenido de la consola modal */
+      }
+    
+      .modal-content h2{
+        font-size: 40px;
         color: #ff9f1c;
-        padding-bottom: 40px;
-        padding-left: 20px;
-    }
-
-    .text_1{
+        padding-bottom: 25px;
+        padding-left: 0px;
+      }
+    
+      .text_1{
         padding-bottom: 4px;
-    }
-
-    .text_2{
+        font-size: 10px;
+      }
+    
+     .text_2{
         padding-bottom: 20px;
         font-size: 10px;
-    }
-
-
-    .modal-content input{
+      }
+    
+    
+      .modal-content input{
         background-color: #ffffff;
         padding: 10px;
-    }
+      }
+      
     
-
-    .close {
+      .close {
         color: #aaa;
         float: right;
         font-size: 30px;
         font-weight: bold;
-    }
-    
-    .close:hover,
-    .close:focus {
+      }
+      
+      .close:hover,
+      .close:focus {
         color: black;
         text-decoration: none;
         cursor: pointer;
-    }
+      }
 
-    .modal-1 {
-        display: none; /* ocultamos inicialmente la consola modal */
-        position: fixed; /* posición fija para que aparezca en el centro */
-        z-index: 1; /* para que esté en la parte superior de todo */
+      .modal-1 {
+        display: none; 
+        position: fixed; 
+        z-index: 1; 
         left: 0;
         top: 0;
-        width: 100%; /* ocupa todo el ancho de la pantalla */
-        height: 100%; /* ocupa todo el alto de la pantalla */
-        overflow: auto; /* para poder desplazarse si el contenido es demasiado grande */
-        background-color: rgba(0, 0, 0, 0.4); /* fondo oscuro semi-transparente */
-        padding: 40px;
-    }
-    
-    .modal-content-1 {
+        width: 100%; 
+        height: 100%; 
+        overflow: auto; 
+        background-color: rgba(0, 0, 0, 0.4); 
+        padding: 20px;
+      }
+      
+      .modal-content-1 {
         background-color: #ffffff; /* fondo blanco */
-        margin: 15% auto; /* margen superior para que aparezca en el centro */
-        padding: 30px;
+        margin: 50% auto; /* margen superior para que aparezca en el centro */
+        padding: 10px;
         border: 1px solid #c3c3c3;
         width: 100%; /* ancho del contenido de la consola modal */
-    }
-    .modal-content-1 h2{
-        font-size: 40px;
+      }
+      .modal-content-1 h2{
+        font-size: 30px;
         color: #ff9f1c;
-        padding-bottom: 40px;
-        padding-left: 45px;
-
-    }
-
-    #elements{
+        padding-right: 100px;
+        padding-bottom: 10px;
+        
+    
+      }
+    
+      #elements{
         padding-bottom: 4px;
-    }  
-    }
-
-  @media (min-width: 768px) and (max-width: 1024px) {
-    /* Estilos para tablets */
-
-    .cards{
-        height: 100px;
-        width: 100px;
       }
-      .carta .view-portada img{
-        width: 40px;
-      }
-      .carta .view-back img{
-        max-width: 140px;
-        max-height: 90px;
-      }
-      .tablero{
-          position: absolute;
-    
-          top: 35%;
-          padding: 30px;
-          border-radius: 20px;
-          background: #ff9f1c;
-          box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-      }
-  
-      
-  
-      .boton-start{
-          position: absolute;
-          top: 0%;
-      }
-      .start-btn {
-          background-color: #ff9f1c;
-          color: #ffffff;
-          border-radius: 5px;
-          padding: 1rem 2rem;
-          border: 0;
-          cursor: pointer;
-          font-family: 'DynaPuff', cursive;
-          font-size: 1.5rem;
-          transition: 0.3s all;
-        }
-        
-      
-      .start-btn:hover {
-          background-color: #008bae;
-        }
-      .intro{
-          position: absolute;
-          top: 3%;
-          
-      }
-      .text{
-          position: absolute;
-          top: 85%;
-          font-size: 18px;
-          font-weight: 300px;
-          right: 7%;
-      }
-      .title{
-          /* align-items: center; */
-          position: relative;
-          font-family: 'Orbitron', sans-serif;
-          font-size: 100px;
-          font-weight: 300;
-          
-      }
-  
-      .score{
-      
-          display: flex;
-          justify-content: center;
-          position: absolute;
-          top: 26%;
-          right: 70%;
+      .close-1 {
+        color: #aaa;
+        float: right;
+        font-size: 28px;
+        font-weight: bold;
       }
       
-      .score .bloque1{
-          margin: 0% 4%;
-          display: flex;
-          flex-direction: column;
-          align-items: center;
-          font-size: 20px;
-          width: 70px;
-          height: 600px;
+      .close-1:hover,
+      .close-1:focus {
+        color: black;
+        text-decoration: none;
+        cursor: pointer;
       }
-      
-      .score .bloque1 div{
-          display: flex;
-          justify-content: center;
-          align-items: center;
-          font-size: 20px;
-          background-color: #ffbf69;
-      
-      }
-      
-      .temporizador{
-          
-          display: flex;
-          justify-content: center;
-          position: absolute;
-          top: 25%;
-          right: 12%;
-          
-      }
-      .temporizador .bloque{
-          margin: 0% 4%;
-          display: flex;
-          flex-direction: column;
-          align-items: center;
-          
-      }
-      .temporizador .bloque div{
-          display: flex;
-          justify-content: center;
-          align-items: center;
-          background-color:#cbf3f0 ;
-          box-shadow: #cbf3f0;
-          font-size: 25px;
-          width: 70px;
-          height: 40px;
-          margin-bottom: 10px;
-          border-radius: 5px;
-          border: 1px solid #000000 ;
-          box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-      }
-      
-      .temporizador .bloque p{
-          font-size: 12px;
-          margin: 0;
-      }
-  
-  
-  .modal {
-      display: none; /* ocultamos inicialmente la consola modal */
-      position: fixed; /* posición fija para que aparezca en el centro */
-      z-index: 1; /* para que esté en la parte superior de todo */
-      left: 0;
-      top: 0;
-      width: 100%; /* ocupa todo el ancho de la pantalla */
-      height: 100%; /* ocupa todo el alto de la pantalla */
-      overflow: auto; /* para poder desplazarse si el contenido es demasiado grande */
-      background-color: rgba(0, 0, 0, 0.4); /* fondo oscuro semi-transparente */
-      padding: 40px;
-    }
-    
-    .modal-content {
-      background-color: #ffffff; /* fondo blanco */
-      margin: 15% auto; /* margen superior para que aparezca en el centro */
-      padding: 40px;
-      border: 1px solid #888;
-      width: 80%; /* ancho del contenido de la consola modal */
-    }
-  
-    .modal-content h2{
-      font-size: 50px;
-      color: #ff9f1c;
-      padding-bottom: 40px;
-      padding-left: 20px;
-    }
-  
-    .text_1{
-      padding-bottom: 4px;
-    }
-  
-   .text_2{
-      padding-bottom: 20px;
-      font-size: 10px;
-    }
-  
-  
-    .modal-content input{
-      background-color: #ffffff;
-      padding: 10px;
-    }
-    
-  
-    .close {
-      color: #aaa;
-      float: right;
-      font-size: 30px;
-      font-weight: bold;
-    }
-    
-    .close:hover,
-    .close:focus {
-      color: black;
-      text-decoration: none;
-      cursor: pointer;
-    }
-  
-    .modal-1 {
-      display: none; /* ocultamos inicialmente la consola modal */
-      position: fixed; /* posición fija para que aparezca en el centro */
-      z-index: 1; /* para que esté en la parte superior de todo */
-      left: 0;
-      top: 0;
-      width: 100%; /* ocupa todo el ancho de la pantalla */
-      height: 100%; /* ocupa todo el alto de la pantalla */
-      overflow: auto; /* para poder desplazarse si el contenido es demasiado grande */
-      background-color: rgba(0, 0, 0, 0.4); /* fondo oscuro semi-transparente */
-      padding: 40px;
-    }
-    
-    .modal-content-1 {
-      background-color: #ffffff; /* fondo blanco */
-      margin: 15% auto; /* margen superior para que aparezca en el centro */
-      padding: 30px;
-      border: 1px solid #c3c3c3;
-      width: 100%; /* ancho del contenido de la consola modal */
-    }
-    .modal-content-1 h2{
-      font-size: 40px;
-      color: #ff9f1c;
-      padding-bottom: 40px;
-      padding-left: 45px;
-  
-    }
-  
-    #elements{
-      padding-bottom: 4px;
-    }  
-    
-  }
-
-  @media (max-width: 414px) {
-    .cards{
-        height: 100px;
-        width: 100px;
-      }
-      .carta .view-portada img{
-        width: 20px;
-      }
-      .carta .view-back img{
-        max-width: 140px;
-        max-height: 90px;
-      }
-      .tablero{
-          position: absolute;
-    
-          top: 30%;
-          padding: 10px;
-          border-radius: 20x;
-          background: #ff9f1c;
-          box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-      }
-  
-      
-  
-      .boton-start{
-          position: absolute;
-          top: 100%;
-      }
-      .start-btn {
-          background-color: #ff9f1c;
-          color: #ffffff;
-          border-radius: 5px;
-          padding: 1rem 2rem;
-          border: 0;
-          cursor: pointer;
-          font-family: 'DynaPuff', cursive;
-          font-size: 1.5rem;
-          transition: 0.3s all;
-        }
-        
-      
-      .start-btn:hover {
-          background-color: #008bae;
-        }
-      .intro{
-          position: absolute;
-          top: 3%;
-          
-      }
-      .text{
-          position: absolute;
-          top: 85%;
-          font-size: 15px;
-          font-weight: 300px;
-          right: -3%;
-      }
-      .title{
-          /* align-items: center; */
-          position: relative;
-          font-family: 'Orbitron', sans-serif;
-          font-size: 70px;
-          font-weight: 300;
-          
-      }
-  
-      .score{
-      
-          display: flex;
-          justify-content: center;
-          position: absolute;
-          top: 20%;
-          right: 50%;
-      }
-      
-      .score .bloque1{
-          margin: 0% 4%;
-          display: flex;
-          flex-direction: column;
-          align-items: center;
-          font-size: 20px;
-          width: 70px;
-          height: 600px;
-      }
-      
-      .score .bloque1 div{
-          display: flex;
-          justify-content: center;
-          align-items: center;
-          font-size: 20px;
-          background-color: #ffbf69;
-      
-      }
-      
-      .temporizador{
-          
-          display: flex;
-          justify-content: center;
-          position: absolute;
-          top: 18%;
-          right: 0%;
-          
-      }
-
-      .temporizador .bloque{
-          margin: 0% 4%;
-          display: flex;
-          flex-direction: column;
-          align-items: center;
-          
-      }
-      .temporizador .bloque div{
-          display: flex;
-          justify-content: center;
-          align-items: center;
-          background-color:#cbf3f0 ;
-          box-shadow: #cbf3f0;
-          font-size: 25px;
-          width: 70px;
-          height: 40px;
-          margin-bottom: 10px;
-          border-radius: 5px;
-          border: 1px solid #000000 ;
-          box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-      }
-      
-      .temporizador .bloque p{
-          font-size: 12px;
-          margin: 0;
-      }
-  
-  
-  .modal {
-      display: none; /* ocultamos inicialmente la consola modal */
-      position: fixed; /* posición fija para que aparezca en el centro */
-      z-index: 1; /* para que esté en la parte superior de todo */
-      left: 0;
-      top: 0;
-      width: 100%; /* ocupa todo el ancho de la pantalla */
-      height: 100%; /* ocupa todo el alto de la pantalla */
-      overflow: auto; /* para poder desplazarse si el contenido es demasiado grande */
-      background-color: rgba(0, 0, 0, 0.4); /* fondo oscuro semi-transparente */
-      padding: 40px;
-    }
-    
-    .modal-content {
-      background-color: #ffffff; /* fondo blanco */
-      margin: 15% auto; /* margen superior para que aparezca en el centro */
-      padding: 40px;
-      border: 1px solid #888;
-      width: 80%; /* ancho del contenido de la consola modal */
-    }
-  
-    .modal-content h2{
-      font-size: 45px;
-      color: #ff9f1c;
-      padding-bottom: 40px;
-      padding-left: 10px;
-    }
-  
-    .text_1{
-      padding-bottom: 4px;
-    }
-  
-   .text_2{
-      padding-bottom: 20px;
-      font-size: 10px;
-    }
-  
-  
-    .modal-content input{
-      background-color: #ffffff;
-      padding: 10px;
-    }
-    
-  
-    .close {
-      color: #aaa;
-      float: right;
-      font-size: 30px;
-      font-weight: bold;
-    }
-    
-    .close:hover,
-    .close:focus {
-      color: black;
-      text-decoration: none;
-      cursor: pointer;
-    }
-  
-    .modal-1 {
-      display: none; /* ocultamos inicialmente la consola modal */
-      position: fixed; /* posición fija para que aparezca en el centro */
-      z-index: 1; /* para que esté en la parte superior de todo */
-      left: 0;
-      top: 0;
-      width: 100%; /* ocupa todo el ancho de la pantalla */
-      height: 100%; /* ocupa todo el alto de la pantalla */
-      overflow: auto; /* para poder desplazarse si el contenido es demasiado grande */
-      background-color: rgba(0, 0, 0, 0.4); /* fondo oscuro semi-transparente */
-      padding: 40px;
-    }
-    
-    .modal-content-1 {
-      background-color: #ffffff; /* fondo blanco */
-      margin: 15% auto; /* margen superior para que aparezca en el centro */
-      padding: 30px;
-      border: 1px solid #c3c3c3;
-      width: 100%; /* ancho del contenido de la consola modal */
-    }
-    .modal-content-1 h2{
-      font-size: 40px;
-      color: #ff9f1c;
-      padding-bottom: 40px;
-      padding-left: 45px;
-  
-    }
-  
-    #elements{
-      padding-bottom: 4px;
-    }  
-    
   
   }
 
-  @media screen and (max-width: 1129px) {
-    
-
-    .boton-start{
-        position: absolute;
-        top: 120%;
-    }
-  }
 
 
 
