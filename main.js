@@ -9,15 +9,64 @@ let disableDeck = false;
 let intervalid = null;
 let start= false;
 let ptos;
+let miDiccionario = {};
+let miLista = [];
+
 
 
 // const btnOcultarModal= document.querySelector('#ocultar-modal');
 // const contModal= document.querySelector('.modal-contents');
 // const nombreInput= document.querySelector('#nombre');
 // const apellidoInput= document.querySelector('#apellido');
+function recolectarData(){
+    miLista.push(miDiccionario);
+    localStorage.setItem('lista', JSON.stringify(miLista));
+    guardarEnLocalStorage();
+     
+}
+
+function guardarEnLocalStorage(){
+    miLista = JSON.parse(localStorage.getItem('lista'));
+    let elements = document.getElementById('elements');
+    elements.innerHTML = "";
+    
+    miLista.forEach(element => {
+      let elements = document.getElementById('elements');
+      let div = document.createElement("div");
+      div.innerHTML =  "- " + element.nombre + " " + element.apellido +" Su Score es --> " + element.score;
+      elements.appendChild(div);
+    });  
+
+    // miLista.forEach(element => {
+    //     // Verifica si el elemento ya ha sido agregado al HTML
+    //     if (!elementosAgregados[element.id]) {
+    //       let elements = document.getElementById('elements');
+    //       let div = document.createElement("div");
+    //       div.innerHTML = element.nombre + " " + element.apellido +" Su Score es --> " + element.score;
+    //       elements.appendChild(div);
+    
+    //       // Marca el elemento como agregado al HTML
+    //       elementosAgregados[element.id] = true;
+    //     }
+    //   });
+}
+
 
 var modal = document.getElementById("modal");
 var btnCerrar = document.getElementsByClassName("close")[0];
+
+var modal_1 = document.getElementById("modal-1");
+var btnCerrar_1 = document.getElementsByClassName("close-1")[0];
+
+
+function ocultarModal_1() {
+    modal_1.style.display = "none";
+  }
+  
+btnCerrar_1.onclick = function() {
+    
+    ocultarModal_1(); 
+  }
 
 
 const startBtn = document.querySelector('.start-btn');
@@ -51,6 +100,7 @@ startBtn.addEventListener('click', initGame);
 
 const form= document.querySelector('form');
 function ocultarModal() {
+
     modal.style.display = "none";
     start = true;
     intervalid = setInterval(cargarsec, 1000);
@@ -59,9 +109,24 @@ function ocultarModal() {
 btnCerrar.onclick = function() {
     const nombre = document.getElementById("nombre").value;
     const apellido = document.getElementById("apellido").value;
-    console.log("Nombre:", nombre);
-    console.log("Apellido:", apellido);
-    ocultarModal();
+    if (nombre !== "" && apellido !== "") {
+        miDiccionario.nombre = nombre;
+        miDiccionario.apellido = apellido;
+        console.log("Nombre:", nombre);
+        console.log("Apellido:", apellido);
+        ocultarModal(); 
+        
+      } else {
+        // Al menos uno de los valores está vacío, mostrar un mensaje de error o hacer algo aquí
+        modal.style.display = "block";
+      }
+    // localStorage.setItem("Nomnbre", nombre);
+    // localStorage.setItem("Apellido", apellido);
+    // miDiccionario.nombre = nombre;
+    // miDiccionario.apellido = apellido;
+    // console.log("Nombre:", nombre);
+    // console.log("Apellido:", apellido);
+    // ocultarModal(); 
   }
 
 
@@ -133,6 +198,7 @@ function reset(){
 function score(tiempoRestante, tiempoTotal, puntuacionMaxima) {
     let puntuacion = puntuacionMaxima * (tiempoRestante / tiempoTotal);
     ptos=Math.floor(puntuacion);
+    miDiccionario.score=ptos;
     puntaje.innerHTML= ptos;
 
     }
@@ -196,6 +262,9 @@ function matchCards(img1, img2) {
             start=false;
             let tiempoRestante =parseInt(document.getElementById('minutos').innerHTML) * 60 + parseInt(document.getElementById('segundos').innerHTML);
             let puntuacionTotal = score(tiempoRestante, 180, 100);
+            recolectarData();
+            modal_1.style.display = "block";
+            
             console.log(`El tiempo se ha acabado. Tu puntuación es: ${puntuacionTotal}`);
         }
         cardOne.removeEventListener("click", flipCard);
@@ -280,6 +349,9 @@ function cargarmins(segundos){
         shuffleCard();
         let tiempoRestante =parseInt(document.getElementById('minutos').innerHTML) * 60 + parseInt(document.getElementById('segundos').innerHTML);
         let puntuacionTotal = score(tiempoRestante, 180, 100);
+        recolectarData();
+        modal_1.style.display = "block";
+        
         console.log(`El tiempo se ha acabado. Tu puntuación es: ${puntuacionTotal}`);
         //let puntuaciontotal= score(tiempoRestante, 180,100)
         
@@ -305,3 +377,33 @@ function cargarmins(segundos){
 
 // console.log(`El tiempo se ha acabado`)
 //       clearInterval(timer)
+
+// function mostrarTabla() {
+//     var datos = JSON.parse(localStorage.getItem("datos")); // obtiene los datos del LocalStorage y los convierte en un objeto JavaScript
+//     var tablaBody = document.getElementById("tabla-body"); // obtiene el cuerpo de la tabla
+  
+//     for (var i = 0; i < datos.length; i++) {
+//       var fila = document.createElement("tr"); // crea una nueva fila de la tabla
+  
+//      // crea las celdas de la fila con los datos correspondientes
+//       var nombreCel = document.createElement("td");
+//       nombreCel.textContent = datos[i].nombre;
+//       var emailCel = document.createElement("td");
+//       emailCel.textContent = datos[i].email;
+//       var telefonoCel = document.createElement("td");
+//       telefonoCel.textContent = datos[i].telefono;
+  
+//       // agrega las celdas a la fila
+//       fila.appendChild(nombreCel);
+//       fila.appendChild(emailCel);
+//       fila.appendChild(telefonoCel);
+  
+//       // agrega la fila al cuerpo de la tabla
+//       tablaBody.appendChild(fila);
+//     }
+//   }
+  
+  // llama a la función para mostrar la tabla al cargar la página
+//   window.onload = function() {
+//     mostrarTabla();
+//   }

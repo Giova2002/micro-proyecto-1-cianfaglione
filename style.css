@@ -8,6 +8,76 @@
   font-family: 'Orbitron', sans-serif;
 }
 
+
+
+.modal-1 {
+    display: none; /* ocultamos inicialmente la consola modal */
+    position: fixed; /* posición fija para que aparezca en el centro */
+    z-index: 1; /* para que esté en la parte superior de todo */
+    left: 0;
+    top: 0;
+    width: 100%; /* ocupa todo el ancho de la pantalla */
+    height: 100%; /* ocupa todo el alto de la pantalla */
+    overflow: auto; /* para poder desplazarse si el contenido es demasiado grande */
+    background-color: rgba(0, 0, 0, 0.4); /* fondo oscuro semi-transparente */
+    padding: 40px;
+  }
+  
+  .modal-content-1 {
+    background-color: #ffffff; /* fondo blanco */
+    margin: 15% auto; /* margen superior para que aparezca en el centro */
+    padding: 30px;
+    border: 1px solid #c3c3c3;
+    width: 50%; /* ancho del contenido de la consola modal */
+  }
+  .modal-content-1 h2{
+    font-size: 40px;
+    color: #ff9f1c;
+    padding-bottom: 40px;
+    padding-left: 45px;
+
+  }
+
+  #elements{
+    padding-bottom: 4px;
+  }
+  .close-1 {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+  }
+  
+  .close-1:hover,
+  .close-1:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+  }
+  .btn {
+    text-align: center;
+    padding: 4px;
+    border-radius: 3px;
+    background-color: #ff9f1c;
+    border: none;
+    transition: all 0.5s;
+
+  }
+  .btn:hover{
+    background-color: #008bae;
+  }
+
+
+
+
+
+
+
+
+
+
+
+
 .modal {
     display: none; /* ocultamos inicialmente la consola modal */
     position: fixed; /* posición fija para que aparezca en el centro */
@@ -22,17 +92,40 @@
   }
   
   .modal-content {
-    background-color: #fefefe; /* fondo blanco */
+    background-color: #ffffff; /* fondo blanco */
     margin: 15% auto; /* margen superior para que aparezca en el centro */
-    padding: 30px;
+    padding: 40px;
     border: 1px solid #888;
-    width: 30%; /* ancho del contenido de la consola modal */
+    width: 40%; /* ancho del contenido de la consola modal */
+  }
+
+  .modal-content h2{
+    font-size: 40px;
+    color: #ff9f1c;
+    padding-bottom: 40px;
+    padding-left: 45px;
+  }
+
+  .text_1{
+    padding-bottom: 4px;
+  }
+
+ .text_2{
+    padding-bottom: 20px;
+    font-size: 10px;
+  }
+
+
+  .modal-content input{
+    background-color: #ffffff;
+    padding: 10px;
   }
   
+
   .close {
     color: #aaa;
     float: right;
-    font-size: 28px;
+    font-size: 30px;
     font-weight: bold;
   }
   
@@ -54,7 +147,31 @@
   .btn:hover{
     background-color: #008bae;
   }
-
+  table {
+    border-collapse: collapse;
+    width: 100%;
+  }
+  
+  th, td {
+    border: 1px solid black;
+    padding: 8px;
+  }
+  
+  th {
+    background-color: #ccc;
+  }
+  
+  tbody tr:nth-child(even) {
+    background-color: #f2f2f2;
+  }
+  
+  tbody tr:hover {
+    background-color: #ddd;
+  }
+  
+  body {
+    font-family: Arial, sans-serif;
+  }
 
 /* .modal-container{
     position: fixed;
