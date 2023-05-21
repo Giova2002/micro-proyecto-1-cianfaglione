@@ -9,17 +9,61 @@ let disableDeck = false;
 let intervalid = null;
 let start= false;
 let ptos;
-// let puntuación=0;
-// let puntuación_máxima=1;
-// let tiempo_en_mins;
-// let tiempo_en_secs;
 
 
+// const btnOcultarModal= document.querySelector('#ocultar-modal');
+// const contModal= document.querySelector('.modal-contents');
+// const nombreInput= document.querySelector('#nombre');
+// const apellidoInput= document.querySelector('#apellido');
+
+var modal = document.getElementById("modal");
+var btnCerrar = document.getElementsByClassName("close")[0];
 
 
 const startBtn = document.querySelector('.start-btn');
 
 startBtn.addEventListener('click', initGame);
+
+// function abrirModal(){
+    
+// //     contModal.classList.add('mostrar');
+
+// // }
+
+// btnOcultarModal.addEventListener('click', (e)=>{
+//     e.preventDefault();
+// //     contModal.classList.remove('mostrar')
+// })
+
+
+// const enviarBtn = document.getElementById("enviar-btn");
+
+// enviarBtn.addEventListener("click", function() {
+//     console.log('hola')
+//     // Obtener los valores de los inputs
+//     const nombre = document.getElementById("nombre").value;
+//     const apellido = document.getElementById("apellido").value;
+//     console.log("Nombre:", nombre);
+//     console.log("Apellido:", apellido);
+//     // Ocultar el modal y empezar el tiempo
+//     ocultarModal();
+// });
+
+const form= document.querySelector('form');
+function ocultarModal() {
+    modal.style.display = "none";
+    start = true;
+    intervalid = setInterval(cargarsec, 1000);
+  }
+  
+btnCerrar.onclick = function() {
+    const nombre = document.getElementById("nombre").value;
+    const apellido = document.getElementById("apellido").value;
+    console.log("Nombre:", nombre);
+    console.log("Apellido:", apellido);
+    ocultarModal();
+  }
+
 
 function initGame() {
 
@@ -27,24 +71,62 @@ function initGame() {
     tiempo_en_mins=0;
     tiempo_en_secs=0;
 
-    minutos= 1;
+    minutos= 3;
     segundos= 0;
     puntaje.innerHTML=0;
-    start= true;
+    modal.style.display = "block";
+
+    if (modal.style.display == "none") {
+        ocultarModal();
+        intervalid = setInterval(cargarsec, 1000);
+      }
+    
+}
+
+
+    // if(modal.style.display == "none"){
+    //     start= true;
+    //     intervalid=setInterval(cargarsec, 1000);
+
+    // }
+        // tiempo_en_mins=0;
+        // tiempo_en_secs=0;
+
+        // minutos= 1;
+        // segundos= 0;
+        // puntaje.innerHTML=0;
+        // start= true;
+
+        
+        // intervalid=setInterval(cargarsec, 1000);
+
+    // if(modal.style.display  == "none" ){
+    //     tiempo_en_mins=0;
+    //     tiempo_en_secs=0;
+
+    //     minutos= 1;
+    //     segundos= 0;
+    //     puntaje.innerHTML=0;
+    //     start= true;
+
+        
+    //     intervalid=setInterval(cargarsec, 1000);
+
+    // }
+    // abrirModal();
 
     
-    intervalid=setInterval(cargarsec, 1000);
     // if(minutos ==0){
     //     shuffleCard();
     // }
     
-    
-}
+
 
 function reset(){
     
     shuffleCard();
     clearInterval(intervalid)
+    form.reset();
     return start= false
 
 }

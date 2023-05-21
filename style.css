@@ -7,6 +7,102 @@
   box-sizing: border-box;
   font-family: 'Orbitron', sans-serif;
 }
+
+.modal {
+    display: none; /* ocultamos inicialmente la consola modal */
+    position: fixed; /* posición fija para que aparezca en el centro */
+    z-index: 1; /* para que esté en la parte superior de todo */
+    left: 0;
+    top: 0;
+    width: 100%; /* ocupa todo el ancho de la pantalla */
+    height: 100%; /* ocupa todo el alto de la pantalla */
+    overflow: auto; /* para poder desplazarse si el contenido es demasiado grande */
+    background-color: rgba(0, 0, 0, 0.4); /* fondo oscuro semi-transparente */
+    padding: 40px;
+  }
+  
+  .modal-content {
+    background-color: #fefefe; /* fondo blanco */
+    margin: 15% auto; /* margen superior para que aparezca en el centro */
+    padding: 30px;
+    border: 1px solid #888;
+    width: 30%; /* ancho del contenido de la consola modal */
+  }
+  
+  .close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+  }
+  
+  .close:hover,
+  .close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+  }
+  .btn {
+    text-align: center;
+    padding: 4px;
+    border-radius: 3px;
+    background-color: #ff9f1c;
+    border: none;
+    transition: all 0.5s;
+
+  }
+  .btn:hover{
+    background-color: #008bae;
+  }
+
+
+/* .modal-container{
+    position: fixed;
+    top: 0;
+    Left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: -1;
+    opacity: 0;
+    display:flex;
+    width: 100%;
+    height: 100%; 
+    justify-content: center;
+    aLign-items: center;
+}
+
+.modal-container.mostrar {
+    background-color: #000000;
+    z-index: 1;
+    opacity: 0.9;
+
+}
+
+.modal-container .modal{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 0 500px;
+    padding: 50px;
+    background-color:#fff;
+    opacity: 1;
+}
+
+form{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+form input{
+    margin: 15px;
+    padding: 10px;
+} */
+
 .boton-start{
     position: absolute;
     top: 140%;
@@ -23,7 +119,8 @@
     transition: 0.3s all;
   }
   
-  .start-btn:hover {
+
+.start-btn:hover {
     background-color: #008bae;
   }
 .intro{
