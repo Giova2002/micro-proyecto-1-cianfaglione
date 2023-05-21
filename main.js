@@ -266,14 +266,18 @@ function matchCards(img1, img2) {
             let tiempoRestante =parseInt(document.getElementById('minutos').innerHTML) * 60 + parseInt(document.getElementById('segundos').innerHTML);
             let puntuacionTotal = score(tiempoRestante, 180, 100);
             recolectarData();
-            modal_1.style.display = "block";
-            
+            setTimeout(function() {
+                modal_1.style.display = "block";;
+              }, 2000 );
+
+            // modal_1.style.display = "block";
             console.log(`El tiempo se ha acabado. Tu puntuación es: ${puntuacionTotal}`);
         }
         cardOne.removeEventListener("click", flipCard);
         cardTwo.removeEventListener("click", flipCard);
         cardOne = cardTwo = "";
         return disableDeck = false;
+
     }
     setTimeout(() => {
         cardOne.classList.add("shake");
@@ -352,7 +356,9 @@ function cargarmins(segundos){
         shuffleCard();
         let tiempoRestante =parseInt(document.getElementById('minutos').innerHTML) * 60 + parseInt(document.getElementById('segundos').innerHTML);
         let puntuacionTotal = score(tiempoRestante, 180, 100);
+        
         recolectarData();
+
         modal_1.style.display = "block";
         
         console.log(`El tiempo se ha acabado. Tu puntuación es: ${puntuacionTotal}`);
